@@ -1,16 +1,17 @@
 <header>
-  <h1>Nom de la page</h1>
-  <button>Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
+  <h1>Utilisateurs</h1>
+  <button mat-raised-button (click)="onCreateUser()">Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
 </header>
 <main>
-  <ul>
-    Liste des utilisateurs présent dans l'API
-    <!--récupère GET et génère auto / attention async-->
-    <a href="#id"><li>Prénom Nom <img src="#" alt="Avatar" /></li></a> <!--Si click -> redirection sur profil avec id-->
+  <ul *ngIf="users$ | async as objet">
+    <li *ngFor="let valeur of objet" (click)="onClickUser(valeur.id)">
+      {{valeur.first_name}} {{valeur.last_name}} <img src="{{valeur.avatar}}" alt="Avatar" />
+    </li>
   </ul>
-  <!--Système de pagnication Material-->
-  <mat-paginator [length]="100"
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 25, 100]">
+<!--
+  Finir le paginator
+-->
+  <mat-paginator [length]="6" [pageSize]="3" [pageSizeOptions]="[3, 5, 10]">
   </mat-paginator>
+
 </main>

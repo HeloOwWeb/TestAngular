@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //Module Material
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 //Components
 import { HomeComponent } from './home/home.component';
@@ -13,6 +16,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FAQComponent } from './faq/faq.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -27,10 +33,16 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
     MatPaginatorModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [AddUserComponent]
 })
 export class AppModule { }
