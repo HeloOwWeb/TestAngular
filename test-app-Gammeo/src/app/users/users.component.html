@@ -1,1 +1,16 @@
-<p>users works!</p>
+<header>
+  <h1>Nom de la page</h1>
+  <button>Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
+</header>
+<main>
+  <ul>
+    Liste des utilisateurs présent dans l'API
+    <!--récupère GET et génère auto / attention async-->
+    <a href="#id"><li>Prénom Nom <img src="#" alt="Avatar" /></li></a> <!--Si click -> redirection sur profil avec id-->
+  </ul>
+  <!--Système de pagnication Material-->
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</main>

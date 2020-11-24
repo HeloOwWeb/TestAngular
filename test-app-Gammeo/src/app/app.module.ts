@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSliderModule } from '@angular/material/slider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { FAQComponent } from './faq/faq.component';
 import { ProfilComponent } from './profil/profil.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,14 @@ import { ProfilComponent } from './profil/profil.component';
     UsersComponent,
     AddUserComponent,
     FAQComponent,
-    ProfilComponent
+    ProfilComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
