@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Module Material
 import { MatButtonModule } from '@angular/material/button';
@@ -16,8 +18,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FAQComponent } from './faq/faq.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+//Services
 import { UserService } from './services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -35,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
     MatPaginatorModule
