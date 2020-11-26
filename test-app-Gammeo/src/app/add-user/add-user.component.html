@@ -3,11 +3,18 @@
   <button (click)="onClose()">Quitter</button><!--Ferme la fenêtre-->
 </header>
 <main>
-  <form action="/" method="post">
-    <!--Voir plus en détail les form fields de material / Reactive Forms-->
-    <input type="text" name="name" value="" required />
-    <input type="text" name="job" value="" />
-    <button>Ajouter</button> <!--@points : api/users / if ok fermer fenêtre-->
+  <form [formGroup]="userFormSign" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Renseignez le nom de l'utilisateur :</label>
+      <input type="text" name="name" formControlName="name" placeholder="Huxley" />
+      <span *ngIf="errRequired()">Merci de renseigner ce champs.</span>
+    </div>    
+    <div>
+      <label for="job"> Renseignez le métier de l'utilisateur :</label>
+      <input type="text" name="job" formControlName="job" placeholder="Ecrivain" />
+    </div>
+    <button type="submit" [disabled]="userFormSign.invalid">Ajouter</button>
+    <p *ngIf="message">Un problème de connexion est survenu. Veuillez réessayer plus tard.</p>
   </form>
 </main>
 
