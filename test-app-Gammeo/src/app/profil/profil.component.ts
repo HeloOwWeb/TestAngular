@@ -14,10 +14,10 @@ export class ProfilComponent implements OnInit{
     private route: ActivatedRoute) {}
 
   id: number = 0;
-  private Fname!: string;
-  private Lname!: string;
-  private email!: string;
-  private avatar!: string;
+  Fname!: string;
+  Lname!: string;
+  email!: string;
+  avatar!: string;
 
   ngOnInit(): void {
     this.getId();
