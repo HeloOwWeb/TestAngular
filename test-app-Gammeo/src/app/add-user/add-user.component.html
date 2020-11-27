@@ -1,6 +1,7 @@
 <header>
   <h1>Nom de la page</h1>
   <button (click)="onClose()">Quitter</button><!--Ferme la fenêtre-->
+  <app-menu></app-menu>
 </header>
 <main>
   <form [formGroup]="userFormSign" (ngSubmit)="onSubmit()">
