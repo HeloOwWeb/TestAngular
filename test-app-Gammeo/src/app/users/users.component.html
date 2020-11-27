@@ -1,17 +1,36 @@
 <header>
   <h1>Utilisateurs</h1>
-  <button mat-raised-button (click)="onCreateUser()">Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
+  <button mat-raised-button (click)="onCreateUser()" *ngIf="message">Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
 </header>
 <main>
-  <ul *ngIf="users$ | async as objet">
-    <li *ngFor="let valeur of objet" (click)="onClickUser(valeur.id)">
-      {{valeur.first_name}} {{valeur.last_name}} <img src="{{valeur.avatar}}" alt="Avatar" />
-    </li>
-  </ul>
-<!--
-  Finir le paginator
--->
-  <mat-paginator [length]="6" [pageSize]="3" [pageSizeOptions]="[3, 5, 10]">
-  </mat-paginator>
+  <mat-spinner *ngIf="!dataSource"></mat-spinner>
 
+  <div *ngIf="!message">Nous nous excusons pour la gêne occasionnée. Nous rencontrons un problème de connexion au serveur.</div>
+
+  <div *ngIf="message">
+    <mat-table [dataSource]="dataSource">
+      <!-- FirstName Column -->
+      <ng-container matColumnDef="firstname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+        <mat-cell *matCellDef="let valeur"> {{valeur.first_name}} </mat-cell>
+      </ng-container>
+
+      <!-- Lastname Column -->
+      <ng-container matColumnDef="lastname">
+        <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+        <mat-cell *matCellDef="let valeur"> {{valeur.last_name}} </mat-cell>
+      </ng-container>
+
+      <!-- Avatar Column -->
+      <ng-container matColumnDef="avatar">
+        <mat-header-cell *matHeaderCellDef> Photo </mat-header-cell>
+        <mat-cell *matCellDef="let valeur"> <img src="{{valeur.avatar}}" alt="Avatar" /> </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickUser(row)"></mat-row>
+    </mat-table>
+    <mat-paginator #pagination [pageSize]="perPage" [pageSizeOptions]="[perPage, middle, total]">
+    </mat-paginator>
+  </div>
 </main>

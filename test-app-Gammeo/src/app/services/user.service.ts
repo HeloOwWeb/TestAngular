@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   private url = 'https://reqres.in/api/users/';
+ // Pour tester les petites mises en place en cas Echec co: http://localhost:3000
 
   constructor(private httpClient: HttpClient) { }
 

@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 //Components
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -41,7 +43,9 @@ import { UserService } from './services/user.service';
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     UserService
