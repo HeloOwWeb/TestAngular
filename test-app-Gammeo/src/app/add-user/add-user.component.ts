@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 import { User } from '../models/User.model';
@@ -25,14 +25,24 @@ export class AddUserComponent implements OnInit {
 
   initForm() {
     this.userFormSign = this.formBuilder.group({
-      name: ['', Validators.required],
-      job: ['']
+      name: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z-]{2,25}$')])),
+      job: new FormControl('', Validators.pattern('^[a-zA-Z-]{2,30}$'))
     });
   }
 
   errRequired() {
     const name = this.userFormSign.controls.name;
     return name.touched && name.hasError('required');
+  }
+
+  errPattern() {
+    const name = this.userFormSign.controls.name;
+    return name.touched && name.hasError('pattern');
+  }
+
+  errPatternJob() {
+    const job = this.userFormSign.controls.job;
+    return job.touched && job.hasError('pattern');
   }
 
   onSubmit() {
