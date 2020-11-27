@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Type, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { AddUserComponent } from '../add-user/add-user.component';
 
 import { UserService } from '../services/user.service';
@@ -13,20 +14,23 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  //Liste utilisateur
-  users$: Observable<any> | undefined;
-  //Paginator
-/*  length :number = 0;
-  pageSize :number= 0;
-  pageEvent: PageEvent | undefined;*/
+  //Message connexion
+  message!: boolean;
+  //Création de a source des données (!) ordre visuel des colonnes
+  dataSource!: MatTableDataSource<any>;
+  displayedColumns: string[] = ['firstname', 'lastname', 'avatar'];
+  //Paginator 
+  @ViewChild('pagination') paginator!: MatPaginator;
+  total!: number;
+  perPage!: number;
+  middle!: number;
 
   constructor(private userService: UserService,
-              private router: Router,
-              private dialog : MatDialog) { }
+    private cdr: ChangeDetectorRef,
+    private router: Router, private dialog : MatDialog) { }
 
   ngOnInit(): void {
-    this.getAllUsers();
-/*    this.getPaginator();*/
+    this.getUsers();
   }
 
   onCreateUser() {
@@ -42,28 +46,26 @@ export class UsersComponent implements OnInit {
     this.dialog.open(AddUserComponent, dialogConfig);
   }
 
-  getAllUsers() {
-    this.users$ = this.userService.getUsers()
-      .pipe(
-        map(info => {
-          return info.data; 
-        }))
+  getUsers() {
+    this.userService.getUsers()
+      .pipe(take(1))
+      .subscribe(info => {
+        this.message = true;
+        //Pour pouvoir observer que la pagination fonctionne bien j'ai mis une valeur fixe
+        //Normalement, il récupère l'information du serveur : info.per_page (qui est = à 6)
+        this.perPage = 3;
+        this.total = info.total;
+        this.middle = Math.round(this.total / 2);
+        this.dataSource = new MatTableDataSource(info.data);
+        //Détection des modifications
+        this.cdr.detectChanges();
+        //Datasource et affichage liée à la pagination
+        this.dataSource.paginator = this.paginator;
+      }, (error) => { console.log('Une erreur est survenue: ',error); this.message = false;});
   }
 
- /* getPaginator() {
-    this.userService.getUsers()
-      .pipe(
-        map(info => {
-          this.length = info.total;
-          this.pageSize = info.per_page;
-          return this.length;
-        }))
-  }*/
-
-  onClickUser(id:string) {
+  onClickUser(row: any) {
+    const id = row.id;
     this.router.navigate(['/user/', id]);
   }
-
-
-
 }
