@@ -1,6 +1,7 @@
 <header>
   <h1>Utilisateurs</h1>
   <button mat-raised-button (click)="onCreateUser()" *ngIf="message">Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
+  <app-menu></app-menu>
 </header>
 <main>
   <mat-spinner *ngIf="!dataSource"></mat-spinner>

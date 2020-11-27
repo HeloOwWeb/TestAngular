@@ -1,0 +1,21 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+  <fa-icon [icon]="cube"></fa-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/home" routerLinkActive="active">
+    <fa-icon [icon]="home"></fa-icon>
+    <span>Accueil</span>
+  </button>
+  <button mat-menu-item routerLink="/users" routerLinkActive="active">
+    <fa-icon [icon]="users"></fa-icon>
+    <span>Utilisateurs</span>
+  </button>
+  <button mat-menu-item routerLink="/faq" routerLinkActive="active">
+    <fa-icon [icon]="faq"></fa-icon>
+    <span>FAQ</span>
+  </button>
+  <button mat-menu-item disabled routerLinkActive="active">
+    <fa-icon [icon]="contact"></fa-icon>
+    <span>Contact</span>
+  </button>
+</mat-menu>

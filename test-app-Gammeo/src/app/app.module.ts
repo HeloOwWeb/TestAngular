@@ -13,6 +13,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //Components
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -20,8 +23,10 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FAQComponent } from './faq/faq.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { MenuComponent } from './menu/menu.component';
 //Services
 import { UserService } from './services/user.service';
+
 
 
 
@@ -33,7 +38,8 @@ import { UserService } from './services/user.service';
     AddUserComponent,
     FAQComponent,
     ProfilComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,10 @@ import { UserService } from './services/user.service';
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatMenuModule,
+    FontAwesomeModule
   ],
   providers: [
     UserService
