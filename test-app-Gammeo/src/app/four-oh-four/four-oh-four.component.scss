@@ -2,6 +2,12 @@
 
 main{
     text-align: center;
+    @include media-min("desktop"){
+        width: 40%;
+        margin-top: 0;
+        margin-right:auto;
+        margin-left: auto;
+    }
 }
 
 img{
