@@ -1,0 +1,79 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+mat-dialog-content {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid $darkBlue;
+}
+
+header {
+  height: 25%;
+  border-radius: 5px;
+  padding-top: 5%;
+
+  @include media-min("tablet-up") {
+    height: 20%;
+  }
+
+  @include media-min("widescreen") {
+    height: 18%;
+    padding-top: 2%;
+  }
+}
+
+.head {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  @include flexAroundCenter(column);
+}
+
+h1, mat-dialog-actions {
+  margin: 0;
+  font-size: 6vmin;
+
+  @include media-min("tablet-up") {
+    font-size: 4vmin;
+  }
+}
+
+mat-form-field {
+  @include media-min("tablet-up") {
+    font-size: 3vmin;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  @include media-min("widescreen") {
+    margin-bottom: 0;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2.5vmin;
+  }
+}
+
+button {
+  @include media-min("tablet-up") {
+    font-size: 3vmin;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2.5vmin;
+  }
+}
+
+span {
+  color: $red;
+  font-size: 5vmin;
+
+  @include media-min("tablet-up") {
+    font-size: 2.5vmin;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2vmin;
+  }
+}

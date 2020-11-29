@@ -1,0 +1,51 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+mat-table {
+  margin: 2%;
+
+  @include media-min("widescreen") {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+mat-header-cell {
+  justify-content: center;
+  font-size: 4.8vmin;
+  color: $lightBlue;
+  background-color: $darkBlue;
+
+  @include media-min("tablet-up") {
+    font-size: 3.5vmin;
+    padding: 0 3%;
+  }
+}
+
+mat-cell{
+    justify-content: center;
+    @include media-min("tablet-up"){
+        font-size: 3vmin;
+    }
+}
+
+img{
+    border-radius: 2%;
+}
+
+h1 {
+  @include h1;
+}
+
+mat-paginator {
+  @include media-min("tablet-up") {
+    font-size: 2.5vmin;
+  }
+
+  @include media-min("widescreen") {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

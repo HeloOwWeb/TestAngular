@@ -1,3 +1,110 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+mat-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 65%;
+  text-align: right;
+  background-color: $darkBlue;
+
+  @include media-min("tablet-up") {
+    width: 45%;
+  }
+
+  @include media-min("widescreen") {
+    width: 25%;
+  }
+
+  .sidenav {
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    button {
+      margin: 5% 0;
+      font-size: 6vmin;
+
+      @include media-min("tablet-up") {
+        font-size: 4vmin;
+      }
+
+      @include media-min("widescreen") {
+        font-size: 2.5vmin;
+        margin : 3%;
+      }
+    }
+  }
+}
+
 .active {
-  color: #CF5869;
+  color: $lightBlue;
+  text-shadow: 1px 1px 1px $shadow;
+}
+
+button, mat-icon{
+  @include media-min("tablet-up") {
+    font-size: 4vmin;
+  }
+}
+
+.menu {
+  @include flexAroundCenter(column);
+  width: 100%;
+
+  button {
+    width: 100%;
+  }
+
+  @include media-min("tablet-up") {
+    font-size: 4.5vmin;
+
+    .mat-icon {
+      height: 40px;
+    }
+
+    button {
+      height: 65px;
+    }
+  }
+
+  @include media-min("desktop") {
+
+    .mat-icon {
+      height: 35px;
+    }
+  }
+
+  @include media-min("widescreen") {
+    .mat-icon {
+      height: 45px;
+    }
+
+    button {
+      height: 70px;
+    }
+  }
+
+  @include media-min("XL") {
+    font-size: 3.5vmin;
+
+    .mat-icon {
+      height: 75px;
+    }
+  }
+
+  @include media-min("XXL") {
+    font-size: 3.5vmin;
+
+    .mat-icon {
+      height: 40px;
+    }
+
+    button {
+      height: 70px;
+    }
+  }
 }

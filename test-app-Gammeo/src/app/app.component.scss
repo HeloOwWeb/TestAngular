@@ -1,0 +1,59 @@
+@import "../sass/variables";
+@import "../sass/mixins";
+
+
+//Base
+html, body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  font-size: 15px;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+header {
+  height: 15%;
+  background-color: $darkBlue;
+  color: $lightBlue;
+
+  @include media-min("phone-down") {
+    height: 25%;
+  }
+
+  @include media-min("tablet-up") {
+    height: 10%;
+  }
+}
+
+.head {
+  height: 100%;
+  @include flexAroundCenter(row);
+}
+
+main {
+  margin-top: 15%;
+
+  @include media-min("tablet-up") {
+    margin-top: 12%;
+  }
+
+  @include media-min("widescreen") {
+    margin-top: 5%;
+  }
+}
+  //Classes de couleurs
+  .darkBlue {
+    color: $darkBlue !important;
+  }
+
+
+  .lightBlue {
+    color: $lightBlue !important;
+  }

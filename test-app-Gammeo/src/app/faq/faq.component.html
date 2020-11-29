@@ -1,92 +1,133 @@
-<header>
-  <h1>FAQ</h1>
-  <app-menu></app-menu>
-</header>
-<main>
-  <section>
-    <h2>Questions Administration Système</h2>
-    <div>
-      <h3>Expliquer ce que va faire la commande suivante dans un système Unix :</h3>
-      <p>$ cd ~/studiomagnetique</p>
-      <p>
-        Change de dossier pour aller dans le répertoire studiomagnetique qui se trouve dans le répertoire de l'utilisateur en cours.
-      </p>
+<mat-drawer-container autosize>
+  <header>
+    <div class="head">
+      <h1>FAQ</h1>
     </div>
-    <div>
-      <h3>Sous Unix, quel est la signification du symbole ~ (tilde) ?</h3>
-      <p>
-        Le tilde représente le répertoire de l'utilisateur en cours plus communément appelé le répertoire 'HOME' de l'utilisateur.
-      </p>
-    </div>
-    <div>
-      <h3>Expliquer ce que va faire la commande suivante :</h3>
-      <p>$ chmod -R application/src/ u+rwx,g+rx-w,o+rx-w;</p>
-      <p>
-        Modifie les permissions d'accès au répertoire et tout ce qu'il contient. Le répertoire en question est src appartenant au dossier application.
-        Les permissions ont été modifiées comme suit :<br />
-        u+rwx : ajoute la lecture, l'écriture et l'exécution au propriétaire du fichier.<br />
-        g+rx-w : ajoute la lecture, l'exécution et supprime l'écriture au groupe propriétaire du fichier.<br />
-        o+rx-w : idem pour tous les autres utilisateurs.
-      </p>
-    </div>
-    <div>
-      <h3>Expliquer ce que va faire la commande suivante :</h3>
-      <p>$ chown mysql:mysql /data/db</p>
-      <p>
-        Change le propriétaire en mysql et le groupe propriétaire en mysql du fichier db qui est dans le dossier data.
-      </p>
-    </div>
-    <div>
-      <h3>Expliquer ce que va faire la commande suivante :</h3>
-      <p>$ mkdir ~ test</p>
-      <p>
-        Crée un dossier test dans le répertoire HOME de l'utilisateur en cours.
-      </p>
-    </div>  
-  </section>
-  <section>
-    <h2>Questions Git</h2>
-    <div>
-      <h3>Qu'est-ce que git ?</h3>
-      <p>
-        Git est un contrôleur de versions. C'est un programme qui permet aux développeurs de conserver un historique des modifications et des versions de tous les fichiers.<br />
-        Cela nous permet : <br />
-        - travailler à plusieurs sans risquer de supprimer les modifications des autres collaborateurs;<br />
-        - revenir en arrière en cas de problème;<br />
-        - suivre l'évolution étape par étape d'un code source pour retenir les modifications effectuées sur chaque fichier.<br />
-        Il va nous permettre de créer un dépôt local. Ce dépôt Git est un entrepôt virtuel de notre projet. Il permet d'enregistrer les versions de notre code et d'y accéder si besoin.
-        L'intérêt de Git est donc le ssuivi des modifications mais aussi la sauvegarde des projets.
-      </p>
-    </div>
-    <div>
-      <h3>Que va faire la commande suivante :</h3>
-      <p>$ git add</p>
-      <p>
-        Le stage, désigne tous les fichiers modifiés que vous souhaitez voir apparaître dans votre prochain commit. C'est avec la fonction $ git add  que l'on ajoute un instantané fichier au stage donc à la préparation pour le suivi de version.
-      </p>
-    </div>
-    <div>
-      <h3>Que va faire la commande suivante :</h3>
-      <p>$ git checkout -b staging</p>
-      <p>
-        Crée la branche (-b) staging et bascule (checkout) sur celle-ci.
-      </p>
-    </div>
-    <div>
-      <h3>Que va faire la commande suivante :</h3>
-      <p>$ git rebase -i 796c088d6b303cc527540ae556515c818b9e9907</p>
-      <p>
-        Cette commande permet de faire une rebase interactive sur le commit : 796c088d6b303cc527540ae556515c818b9e9907<br />
-        Rebaser de manière interactive signifie que l'on a la possibilité de modifier les commits qui sont rebasés (les réorganiser, les supprimer).
-        Cela donne un contrôle complet sur l'historique du projet. Il sert principalement à nettoyer son historique. 
-      </p>
-    </div>
-    <div>
-      <h3>Que va faire la commande suivante :</h3>
-      <p>$ git reset --hard origin/master</p>
-      <p>
-        Supprime tout l'historique et les modifications effectuées sur ma branche actuelle pour qu'elle soit identique à la branche master.
-      </p>
-    </div>
-  </section>
-</main>
+    <app-menu></app-menu>
+  </header>
+
+  <main>
+    <section>
+      <h2>Questions Administration Système</h2>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Expliquer ce que va faire la commande suivante dans un système Unix: $ cd ~/studiomagnetique</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Change de dossier pour aller dans le répertoire studiomagnetique qui se trouve dans le répertoire de l'utilisateur en cours.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Sous Unix, quel est la signification du symbole ~ (tilde) ?</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Le tilde représente le répertoire de l'utilisateur en cours plus communément appelé le répertoire 'HOME' de l'utilisateur.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Expliquer ce que va faire la commande suivante: $ chmod -R application/src/ u+rwx,g+rx-w,o+rx-w;</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Modifie les permissions d'accès au répertoire et tout ce qu'il contient. Le répertoire en question est src appartenant au dossier application.
+            Les permissions ont été modifiées comme suit :<br />
+            u+rwx : ajoute la lecture, l'écriture et l'exécution au propriétaire du fichier.<br />
+            g+rx-w : ajoute la lecture, l'exécution et supprime l'écriture au groupe propriétaire du fichier.<br />
+            o+rx-w : idem pour tous les autres utilisateurs.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Expliquer ce que va faire la commande suivante: $ chown mysql:mysql /data/db</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Change le propriétaire en mysql et le groupe propriétaire en mysql du fichier db qui est dans le dossier data.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Expliquer ce que va faire la commande suivante: $ mkdir ~ test</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Crée un dossier test dans le répertoire HOME de l'utilisateur en cours.
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+    <section>
+      <h2>Questions Git</h2>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Qu'est-ce que git ?</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Git est un contrôleur de versions. C'est un programme qui permet aux développeurs de conserver un historique des modifications et des versions de tous les fichiers.<br />
+            Cela nous permet : <br />
+            - travailler à plusieurs sans risquer de supprimer les modifications des autres collaborateurs;<br />
+            - revenir en arrière en cas de problème;<br />
+            - suivre l'évolution étape par étape d'un code source pour retenir les modifications effectuées sur chaque fichier.<br />
+            Il va nous permettre de créer un dépôt local. Ce dépôt Git est un entrepôt virtuel de notre projet. Il permet d'enregistrer les versions de notre code et d'y accéder si besoin.
+            L'intérêt de Git est donc le ssuivi des modifications mais aussi la sauvegarde des projets.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Que va faire la commande suivante: $ git add</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Le stage, désigne tous les fichiers modifiés que vous souhaitez voir apparaître dans votre prochain commit. C'est avec la fonction $ git add  que l'on ajoute un instantané fichier au stage donc à la préparation pour le suivi de version.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Que va faire la commande suivante: $ git checkout -b staging</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Crée la branche (-b) staging et bascule (checkout) sur celle-ci.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Que va faire la commande suivante: $ git rebase -i 796c088d6b303cc527540ae556515c818b9e9907</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Cette commande permet de faire une rebase interactive sur le commit : 796c088d6b303cc527540ae556515c818b9e9907<br />
+            Rebaser de manière interactive signifie que l'on a la possibilité de modifier les commits qui sont rebasés (les réorganiser, les supprimer).
+            Cela donne un contrôle complet sur l'historique du projet. Il sert principalement à nettoyer son historique.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Que va faire la commande suivante: $ git reset --hard origin/master</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            Supprime tout l'historique et les modifications effectuées sur ma branche actuelle pour qu'elle soit identique à la branche master.
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+  </main>
+</mat-drawer-container>

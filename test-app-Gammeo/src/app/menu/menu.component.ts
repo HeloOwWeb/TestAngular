@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { faCaretSquareDown, faComment, faHome, faQuestion, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit} from '@angular/core';
+import { faComment, faHome, faQuestion, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-menu',
@@ -12,18 +11,10 @@ export class MenuComponent implements OnInit {
   users = faUsers;
   faq = faQuestion;
   home = faHome;
-  cube = faCaretSquareDown;
-
-  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
   constructor() { }
 
   ngOnInit(): void {
-   // this.someMethod();
-  }
-
-  someMethod() {
-    this.trigger.openMenu();
   }
 
 }

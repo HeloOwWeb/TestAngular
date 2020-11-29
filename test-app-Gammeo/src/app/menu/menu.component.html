@@ -1,21 +1,34 @@
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
-  <fa-icon [icon]="cube"></fa-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/home" routerLinkActive="active">
-    <fa-icon [icon]="home"></fa-icon>
-    <span>Accueil</span>
+<mat-drawer #drawer mode="side">
+  <button type="button" mat-icon-button (click)="drawer.toggle()">
+    <mat-icon aria-hidden="false" aria-label="Fermer le menu" class="lightBlue">close</mat-icon>
   </button>
-  <button mat-menu-item routerLink="/users" routerLinkActive="active">
-    <fa-icon [icon]="users"></fa-icon>
-    <span>Utilisateurs</span>
+  <div class="sidenav">
+    <button mat-button routerLink="/home" routerLinkActive="active">
+      <fa-icon [icon]="home"></fa-icon>
+      <span> Accueil</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button routerLink="/users" routerLinkActive="active">
+      <fa-icon [icon]="users"></fa-icon>
+      <span> Utilisateurs</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button routerLink="/faq" routerLinkActive="active">
+      <fa-icon [icon]="faq"></fa-icon>
+      <span> FAQ</span>
+    </button>
+    <mat-divider> </mat-divider>
+    <button mat-button disabled routerLinkActive="active">
+      <fa-icon [icon]="contact"></fa-icon>
+      <span> Contact</span>
+    </button>
+  </div>
+</mat-drawer>
+<div class="menu">
+  <button type="button" mat-stroked-button (click)="drawer.toggle()" class="darkBlue">
+    Menu
+    <mat-icon aria-label="Ouvrir le menu">widgets</mat-icon>
   </button>
-  <button mat-menu-item routerLink="/faq" routerLinkActive="active">
-    <fa-icon [icon]="faq"></fa-icon>
-    <span>FAQ</span>
-  </button>
-  <button mat-menu-item disabled routerLinkActive="active">
-    <fa-icon [icon]="contact"></fa-icon>
-    <span>Contact</span>
-  </button>
-</mat-menu>
+  <mat-divider></mat-divider>
+</div>
+

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
 
 //Module Material
 import { MatButtonModule } from '@angular/material/button';
@@ -14,8 +15,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 //Components
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -47,14 +52,19 @@ import { UserService } from './services/user.service';
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    LayoutModule,
     MatButtonModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatMenuModule,
-    FontAwesomeModule
+    MatCardModule,
+    FontAwesomeModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatDividerModule
   ],
   providers: [
     UserService

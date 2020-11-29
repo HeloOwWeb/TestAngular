@@ -1,0 +1,23 @@
+@import "../../sass/mixins";
+
+h1 {
+  @include h1;
+}
+
+main {
+  height: 40%;
+  @include flexAroundCenter(column);
+
+  @include media-min("tablet-up") {
+    font-size: 4vmin;
+    padding: 2% 5%;
+  }
+}
+
+button {
+  font-size: 5vmin;
+  @include media-min("tablet-up"){
+      font-size: 4vmin;
+      padding: 2% 5%;
+  }
+}
