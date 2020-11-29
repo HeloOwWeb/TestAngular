@@ -1,5 +1,6 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit, Type, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -24,24 +25,41 @@ export class UsersComponent implements OnInit {
   total!: number;
   perPage!: number;
   middle!: number;
+  //Taille fenetre modal
+  widthDialogu: string = "100%";
+  heightDialogu: string = "75%";
 
   constructor(private userService: UserService,
     private cdr: ChangeDetectorRef,
-    private router: Router, private dialog : MatDialog) { }
+    private router: Router, private dialog: MatDialog, public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.getUsers();
+    this.dialogWidthHeight();
+  }
+
+  dialogWidthHeight() {
+    if (this.breakpointObserver.isMatched('(min-width: 768px && max-width: 1439px)')) {
+      this.widthDialogu = "50%";
+      this.heightDialogu = "60%";
+    } else if (this.breakpointObserver.isMatched('(min-width: 1440px)')) {
+      this.widthDialogu = "30%";
+      this.heightDialogu = "65%";
+    }
+    console.log(this.widthDialogu, this.heightDialogu);
   }
 
   onCreateUser() {
-    //Configuration de la popup
+    //Configuration de la fenetre modal
     const dialogConfig = new MatDialogConfig();
-    //Paramétrage fermeture
-    dialogConfig.disableClose = true;
-    // ?
+    //Paramétrage fermeture - click en dehors accepte
+    dialogConfig.disableClose = false;
+    // Paramétrage ouvert
+    //focus sur le premier champs
     dialogConfig.autoFocus = true;
     //Taille de la popup
-    dialogConfig.width = "75%";
+    dialogConfig.width = this.widthDialogu;
+    dialogConfig.height= this.heightDialogu;
     //Insertion component dans popup
     this.dialog.open(AddUserComponent, dialogConfig);
   }
@@ -67,5 +85,9 @@ export class UsersComponent implements OnInit {
   onClickUser(row: any) {
     const id = row.id;
     this.router.navigate(['/user/', id]);
+  }
+
+  close() {
+    console.log("delete DIV");
   }
 }

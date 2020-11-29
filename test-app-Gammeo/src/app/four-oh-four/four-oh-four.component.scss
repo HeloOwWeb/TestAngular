@@ -1,0 +1,16 @@
+@import "../../sass/mixins";
+
+main{
+    text-align: center;
+}
+
+img{
+    width: 100%;
+}
+
+button{
+    @include media-min("tablet-up"){
+        font-size: 4vmin;
+        padding: 3%;
+    }
+}

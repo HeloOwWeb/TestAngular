@@ -1,0 +1,68 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+main {
+  @include flexAroundCenter(column);
+}
+
+button{
+    @include media-min("tablet-up"){
+        font-size: 3vmin;
+    }
+}
+
+.card {
+  width: 90%;
+
+  @include media-min("tablet-up") {
+    width: 55%;
+  }
+
+  @include media-min("widescreen") {
+    width: 35%;
+  }
+}
+
+mat-card-header {
+  border-bottom: 1px solid $darkBlue;
+  margin-bottom: 5%;
+}
+
+.mat-card-title {
+  @include media-min("tablet-up") {
+    font-size: 4vmin;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 3.5vmin;
+  }
+}
+
+.content-card {
+  @include flexAroundCenter(row);
+}
+
+img {
+  margin: 2%;
+  border-radius: 5%;
+  border: 2px solid $darkBlue;
+
+  @include media-min("widescreen") {
+    width: 25%;
+  }
+}
+
+.mat-card-content {
+  @include media-min("tablet-up") {
+    font-size: 2.8vmin;
+    line-height: 130%;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2.6vmin;
+  }
+}
+
+h1{
+    @include h1;
+}

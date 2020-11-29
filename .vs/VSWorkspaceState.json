@@ -4,11 +4,9 @@
     "\\test-app-Gammeo",
     "\\test-app-Gammeo\\src",
     "\\test-app-Gammeo\\src\\app",
-    "\\test-app-Gammeo\\src\\app\\add-user",
-    "\\test-app-Gammeo\\src\\app\\profil",
-    "\\test-app-Gammeo\\src\\app\\services",
-    "\\test-app-Gammeo\\src\\app\\users"
+    "\\test-app-Gammeo\\src\\app\\faq",
+    "\\test-app-Gammeo\\src\\app\\profil"
   ],
-  "SelectedNode": "\\test-app-Gammeo\\src\\app\\profil\\profil.component.ts",
+  "SelectedNode": "\\test-app-Gammeo\\src\\app\\profil\\profil.component.scss",
   "PreviewInSolutionExplorer": false
 }

@@ -1,23 +1,33 @@
-<header>
-  <h1>Nom de la page</h1>
-  <button (click)="onClose()">Quitter</button><!--Ferme la fenêtre-->
-  <app-menu></app-menu>
-</header>
-<main>
-  <form [formGroup]="userFormSign" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Renseignez le nom de l'utilisateur :</label>
-      <input type="text" name="name" formControlName="name" placeholder="Huxley" />
-      <span *ngIf="errRequired()">Merci de renseigner ce champs.</span>
-      <span *ngIf="errPattern()">Merci de respecter le format: que des lettres minuscules et/ou majuscules.Seul autre caractère autorisé est le trait d'union.Min : 2 lettres, Max: 25 lettres.</span>
-    </div>    
-    <div>
-      <label for="job"> Renseignez le métier de l'utilisateur :</label>
-      <input type="text" name="job" formControlName="job" placeholder="Ecrivain" />
-      <span *ngIf="errPatternJob()">Merci de respecter le format: que des lettres minuscules et/ou majuscules.Seul autre caractère autorisé est le trait d'union.Min : 2 lettres, Max: 30 lettres.</span>
-    </div>
-    <button type="submit" [disabled]="userFormSign.invalid">Ajouter</button>
-    <p *ngIf="message">Un problème de connexion est survenu. Veuillez réessayer plus tard.</p>
-  </form>
-</main>
-
+  <mat-dialog-content>
+    <header>
+      <div class="head">
+        <h1 mat-dialog-title>Ajouter un utilisateur</h1>
+        <mat-dialog-actions>
+          <button mat-mini-fab mat-dialog-close aria-label="Quitter" color="accent">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-dialog-actions>
+      </div>
+    </header>
+    <main>
+      <form [formGroup]="userFormSign" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Nom de l'utilisateur</mat-label>
+          <input matInput type="text" placeholder="Huxley" formControlName="name" />
+        </mat-form-field>
+        <span *ngIf="errRequired()">Merci de renseigner ce champs.</span>
+        <span *ngIf="errPattern()">Merci de respecter le format: que des lettres minuscules et/ou majuscules.Seul autre caractère autorisé est le trait d'union.Min : 2 lettres, Max: 25 lettres.</span>
+        <!--------->
+        <mat-form-field>
+          <mat-label>Métier de l'utilisateur</mat-label>
+          <input matInput type="text" placeholder="Ecrivain" formControlName="job" />
+        </mat-form-field>
+        <span *ngIf="errPatternJob()">Merci de respecter le format: que des lettres minuscules et/ou majuscules.Seul autre caractère autorisé est le trait d'union.Min : 2 lettres, Max: 30 lettres.</span>
+        <!--------->
+        <mat-dialog-actions>
+          <button mat-stroked-button color="primary" type="submit" [disabled]="userFormSign.invalid">Ajouter</button>
+          <span *ngIf="message">Un problème de connexion est survenu. Veuillez réessayer plus tard.</span>
+        </mat-dialog-actions>
+      </form>
+    </main> 
+  </mat-dialog-content>

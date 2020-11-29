@@ -1,0 +1,81 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+h1 {
+  @include h1;
+}
+
+section {
+  margin: 10% 3%;
+
+  @include media-min("tablet-up") {
+    margin: 5%;
+  }
+
+  @include media-min("widescreen") {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+mat-expansion-panel-header {
+  background-color: $darkBlue;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+mat-panel-title {
+  margin: 0;
+  padding: 2%;
+  color: $lightBlue;
+  background-color: $darkBlue;
+  border-bottom: 1px solid $lightBlue;
+}
+
+h2 {
+  @include media-min("tablet-up") {
+    font-size: 3.8vmin;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 3vmin;
+  }
+}
+
+h3 {
+  margin: 0;
+  font-size: 5vmin;
+  line-height: 110%;
+
+  @include media-min("tablet-up") {
+    font-size: 3vmin;
+  }
+
+  @include media-min("tablet-down") {
+    font-size: 3.2vmin;
+    line-height: 115%;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2.5vmin;
+  }
+}
+
+p {
+  margin-top: 5%;
+
+  @include media-min("tablet-up") {
+    font-size: 2.5vmin;
+  }
+
+  @include media-min("tablet-down") {
+    font-size: 2.8vmin;
+    line-height: 115%;
+  }
+
+  @include media-min("widescreen") {
+    font-size: 2.5vmin;
+  }
+}

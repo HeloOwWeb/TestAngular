@@ -1,13 +1,25 @@
-<header>
-  <h1>{{Lname}}</h1>
-  <button routerLink="/users">Retour</button> <!--retour sur la page liste-->
-  <app-menu></app-menu>
-</header>
-<main>
-  <div>
-    <img src="{{avatar}}" alt="Photo de l'utilisateur" />
-    <p>Nom : {{Lname}}</p>
-    <p>Prénom : {{Fname}}</p>
-    <p>E-mail : {{email}}</p>
-  </div>
-</main>
+<mat-drawer-container autosize>
+  <header>
+    <div class="head">
+      <h1>{{Lname}}</h1>
+      <button mat-raised-button routerLink="/users">Retour</button> <!--retour sur la page liste-->
+    </div>
+    <app-menu></app-menu>
+  </header>
+
+  <main>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title class="darkBlue">Détails</mat-card-title>
+      </mat-card-header>
+      <div class="content-card">
+        <img src="{{avatar}}" alt="Photo de l'utilisateur" />
+        <mat-card-content>
+          Nom : {{Lname}}<br />
+          Prénom : {{Fname}}<br />
+          E-mail : {{email}}
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </main>
+</mat-drawer-container>

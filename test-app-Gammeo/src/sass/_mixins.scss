@@ -1,0 +1,27 @@
+/* Breakpoints paramétrés dans une map*/
+$breakpoints: ( "phone-down": 500px, "tablet-up": 768px, "tablet-down": 900px, "desktop-sm": 1025px, "desktop": 1280px, "widescreen": 1440px, "XL": 1600px, "XXL": 1900px);
+
+/*Mixin des médias*/
+@mixin media-min($_key) {
+  @media screen and (min-width: map-get($breakpoints, $_key)) {
+    & {
+      @content;
+    }
+  }
+}
+
+@mixin flexAroundCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin h1 {
+    margin: 0;
+
+    @include media-min("tablet-up") {
+      font-size: 5vmin;
+    }
+}
+

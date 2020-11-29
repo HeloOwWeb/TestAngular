@@ -14,6 +14,7 @@ export class AddUserComponent implements OnInit {
 
   userFormSign!: FormGroup;
   message!: boolean;
+  value = 'Effacer';
 
   constructor(public dialogRef: MatDialogRef<AddUserComponent>,
     private formBuilder: FormBuilder,
@@ -64,9 +65,5 @@ export class AddUserComponent implements OnInit {
           this.message = false;
           console.log("Une erreur est survenue: " + error.message);
         });
-  }
-
-  onClose() {
-    this.dialogRef.close();
   }
 }

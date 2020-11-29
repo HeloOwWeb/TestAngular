@@ -1,37 +1,44 @@
-<header>
-  <h1>Utilisateurs</h1>
-  <button mat-raised-button (click)="onCreateUser()" *ngIf="message">Ajout utilisateur</button> <!--ouvre la fenêtre add-user-->
-  <app-menu></app-menu>
-</header>
-<main>
-  <mat-spinner *ngIf="!dataSource"></mat-spinner>
+<mat-drawer-container autosize>
+  <header>
+    <div class="head">
+      <h1>Utilisateurs</h1>
+      <button mat-fab aria-label="Ajouter un utilisateur" (click)="onCreateUser()" *ngIf="message" color="accent">
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </div>
+    <app-menu></app-menu>
+  </header>
 
-  <div *ngIf="!message">Nous nous excusons pour la gêne occasionnée. Nous rencontrons un problème de connexion au serveur.</div>
+  <main>
+    <mat-spinner *ngIf="!dataSource"></mat-spinner>
 
-  <div *ngIf="message">
-    <mat-table [dataSource]="dataSource">
-      <!-- FirstName Column -->
-      <ng-container matColumnDef="firstname">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
-        <mat-cell *matCellDef="let valeur"> {{valeur.first_name}} </mat-cell>
-      </ng-container>
+    <div *ngIf="!message">Nous nous excusons pour la gêne occasionnée. Nous rencontrons un problème de connexion au serveur.</div>
 
-      <!-- Lastname Column -->
-      <ng-container matColumnDef="lastname">
-        <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
-        <mat-cell *matCellDef="let valeur"> {{valeur.last_name}} </mat-cell>
-      </ng-container>
+    <div *ngIf="message">
+      <mat-table [dataSource]="dataSource">
+        <!-- FirstName Column -->
+        <ng-container matColumnDef="firstname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+          <mat-cell *matCellDef="let valeur"> {{valeur.first_name}} </mat-cell>
+        </ng-container>
 
-      <!-- Avatar Column -->
-      <ng-container matColumnDef="avatar">
-        <mat-header-cell *matHeaderCellDef> Photo </mat-header-cell>
-        <mat-cell *matCellDef="let valeur"> <img src="{{valeur.avatar}}" alt="Avatar" /> </mat-cell>
-      </ng-container>
+        <!-- Lastname Column -->
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+          <mat-cell *matCellDef="let valeur"> {{valeur.last_name}} </mat-cell>
+        </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickUser(row)"></mat-row>
-    </mat-table>
-    <mat-paginator #pagination [pageSize]="perPage" [pageSizeOptions]="[perPage, middle, total]">
-    </mat-paginator>
-  </div>
-</main>
+        <!-- Avatar Column -->
+        <ng-container matColumnDef="avatar">
+          <mat-header-cell *matHeaderCellDef> Photo </mat-header-cell>
+          <mat-cell *matCellDef="let valeur"> <img src="{{valeur.avatar}}" alt="Avatar" /> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickUser(row)"></mat-row>
+      </mat-table>
+      <mat-paginator #pagination [pageSize]="perPage" [pageSizeOptions]="[perPage, middle, total]">
+      </mat-paginator>
+    </div>
+  </main>
+</mat-drawer-container>
