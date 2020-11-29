@@ -46,7 +46,6 @@ export class UsersComponent implements OnInit {
       this.widthDialogu = "30%";
       this.heightDialogu = "65%";
     }
-    console.log(this.widthDialogu, this.heightDialogu);
   }
 
   onCreateUser() {

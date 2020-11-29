@@ -18,6 +18,5 @@ export class FourOhFourComponent implements OnInit {
   selectSrcImage() {
     const number = Math.floor((Math.random() * 4) + 1);
     this.linkImg = this.url + number+ ".jpg";
-    console.log(this.linkImg);
   }
 }
