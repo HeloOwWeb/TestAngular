@@ -10,10 +10,8 @@
   </header>
 
   <main>
+    <div *ngIf="!message" class="alert">Nous nous excusons pour la gêne occasionnée.<br /> Nous rencontrons un problème de connexion au serveur.</div>
     <mat-spinner *ngIf="!dataSource"></mat-spinner>
-
-    <div *ngIf="!message">Nous nous excusons pour la gêne occasionnée. Nous rencontrons un problème de connexion au serveur.</div>
-
     <div *ngIf="message">
       <mat-table [dataSource]="dataSource">
         <!-- FirstName Column -->
@@ -31,7 +29,7 @@
         <!-- Avatar Column -->
         <ng-container matColumnDef="avatar">
           <mat-header-cell *matHeaderCellDef> Photo </mat-header-cell>
-          <mat-cell *matCellDef="let valeur"> <img src="{{valeur.avatar}}" alt="Avatar" /> </mat-cell>
+          <mat-cell *matCellDef="let valeur"> <img src="{{valeur.avatar}}" alt="Avatar {{valeur.last_name}} {{valeur.first_name}}" /> </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

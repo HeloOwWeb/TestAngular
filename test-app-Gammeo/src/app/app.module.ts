@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //Components
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -31,9 +32,6 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { MenuComponent } from './menu/menu.component';
 //Services
 import { UserService } from './services/user.service';
-
-
-
 
 @NgModule({
   declarations: [
@@ -64,7 +62,8 @@ import { UserService } from './services/user.service';
     MatExpansionModule,
     MatInputModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ],
   providers: [
     UserService

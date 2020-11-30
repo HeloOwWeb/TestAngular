@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 import { User } from '../models/User.model';
 import { UserService } from '../services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-user',
@@ -18,7 +19,8 @@ export class AddUserComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddUserComponent>,
     private formBuilder: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -46,6 +48,12 @@ export class AddUserComponent implements OnInit {
     return job.touched && job.hasError('pattern');
   }
 
+  alertMessage() {
+    this.snackBar.open("Utilisateur créé", "", {
+      duration: 2000,
+    });
+  }
+
   onSubmit() {
     const formValue = this.userFormSign.value;
     const objectUser = new User(
@@ -58,7 +66,7 @@ export class AddUserComponent implements OnInit {
       .subscribe(
         response => {
           this.message = true;
-          console.log(response);
+          this.alertMessage();
           this.dialogRef.close();
         },
         error => {
